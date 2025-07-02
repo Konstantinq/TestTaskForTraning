@@ -13,7 +13,9 @@ public class LoaderFile {
         f = new File(pathStr);
         path = Paths.get(pathStr);
         if(f.exists() && !f.isDirectory()) {
+            System.out.print("Найден файл с инкрементом! ");
             read();
+            System.out.println("Счетчик равен '"+counter+"'");
         }else {
 
             System.out.println("Создание файла increment.txt в относительной директории: "+ System.getProperty("user.dir"));
@@ -50,7 +52,7 @@ public class LoaderFile {
 
     public void read(){
         try {
-            System.out.println(Files.readString(Path.of(pathStr)));
+
             counter = Integer.parseInt(Files.readString(Path.of(pathStr)));
         } catch (Exception e) {
             e.printStackTrace();
